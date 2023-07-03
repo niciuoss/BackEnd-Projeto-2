@@ -3,9 +3,9 @@ RUN apk update && apk add build-base gcc autoconf automake zlib-dev libpng-dev v
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
-COPY ./aplicacao/backend/strapi/package.json ./
-COPY ./aplicacao/backend/strapi/package-lock.json ./
-#COPY ./aplicacao/backend/strapi/yarn.lock ./
+COPY ./strapi/package.json ./
+COPY ./strapi/package-lock.json ./
+#COPY ./strapi/yarn.lock ./
 ENV PATH /opt/node_modules/.bin:$PATH
 RUN yarn config set network-timeout 600000 -g && yarn install
 WORKDIR /opt/app
