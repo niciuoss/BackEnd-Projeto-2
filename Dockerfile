@@ -9,7 +9,7 @@ COPY ./aplicacao/backend/strapi/package-lock.json ./
 ENV PATH /opt/node_modules/.bin:$PATH
 RUN yarn config set network-timeout 600000 -g && yarn install
 WORKDIR /opt/app
-COPY ./aplicacao/backend/strapi/ .
+COPY ./strapi/ .
 RUN npm install --platform=linuxmusl --arch=x64 sharp
 RUN yarn build
 
